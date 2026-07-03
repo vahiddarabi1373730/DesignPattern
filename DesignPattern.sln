@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPattern.Api", "DesignPattern.Api\DesignPattern.Api.csproj", "{9C0F3772-DC1D-47AF-BF7E-990693370102}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starter", "Starter\Starter.csproj", "{824D620E-FB04-4C91-8C3D-03F3987BAA30}"
 EndProject
 Global
@@ -16,10 +14,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9C0F3772-DC1D-47AF-BF7E-990693370102}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9C0F3772-DC1D-47AF-BF7E-990693370102}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9C0F3772-DC1D-47AF-BF7E-990693370102}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9C0F3772-DC1D-47AF-BF7E-990693370102}.Release|Any CPU.Build.0 = Release|Any CPU
 		{824D620E-FB04-4C91-8C3D-03F3987BAA30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{824D620E-FB04-4C91-8C3D-03F3987BAA30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{824D620E-FB04-4C91-8C3D-03F3987BAA30}.Release|Any CPU.ActiveCfg = Release|Any CPU
