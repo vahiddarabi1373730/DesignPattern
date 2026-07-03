@@ -1,0 +1,106 @@
+Prototype:
+Prototype یک Creational Pattern است که به‌جای ساخت object از صفر، از یک نمونه‌ی اولیه clone می‌گیرد. این الگو زمانی مفید است که ساخت object پرهزینه، پیچیده، یا تکراری باشد. نکته مهم در Prototype تفاوت بین Shallow Copy و Deep Copy است، چون در Shallow Copy ممکن است referenceهای داخلی بین object اصلی و clone مشترک بمانند.
+
+نسخه خیلی کوتاه مصاحبه‌ای
+Prototype یعنی ساخت object جدید با کپی گرفتن از یک object موجود، نه با new کردن و مقداردهی از صفر.
+
+
+
+ShallowClone:
+این متد یک کپی سطحی یا Shallow Copy می‌سازد.
+فیلدهای value type کپی می‌شوند
+اما reference typeها ممکن است به همان object قبلی اشاره کنند
+
+
+
+Shallow Copy
+فقط لایه‌ی اول object کپی می‌شود.
+
+اگر داخل object، یک object دیگر داشته باشی،
+
+رفرنس آن shared می‌ماند.
+
+public class Address
+{
+    public string City { get; set; }
+}
+
+public class Employee : ICloneable
+{
+    public string Name { get; set; }
+    public Address Address { get; set; }
+
+    public object Clone()
+    {
+        return this.MemberwiseClone();
+    }
+}
+
+Employee emp1 = new Employee
+{
+    Name = "Ali",
+    Address = new Address { City = "Tehran" }
+};
+
+Employee emp2 = (Employee)emp1.Clone();
+emp2.Address.City = "Shiraz";
+
+Console.WriteLine(emp1.Address.City); // Shiraz
+چرا emp1 هم تغییر کرد؟
+چون Address یک reference type است و هر دو به یک Address مشترک اشاره می‌کنند.
+
+
+
+2) Deep Copy
+در Deep Copy، objectهای داخلی هم جداگانه clone می‌شوند.
+
+public class Address
+{
+    public string City { get; set; }
+}
+
+public class Employee
+{
+    public string Name { get; set; }
+    public Address Address { get; set; }
+
+    public Employee Clone()
+    {
+        return new Employee
+        {
+            Name = this.Name,
+            Address = new Address
+            {
+                City = this.Address.City
+            }
+        };
+    }
+}
+
+Employee emp1 = new Employee
+{
+    Name = "Ali",
+    Address = new Address { City = "Tehran" }
+};
+
+Employee emp2 = emp1.Clone();
+emp2.Address.City = "Shiraz";
+
+Console.WriteLine(emp1.Address.City); // Tehran
+Console.WriteLine(emp2.Address.City); // Shiraz
+
+اینجا دیگر تغییر emp2 روی emp1 اثر ندارد.
+
+ 
+مزایای Prototype
+1) سرعت بیشتر در ساخت object
+اگر ساخت object سنگین باشد، clone گرفتن سریع‌تر است.
+
+2) ساده شدن ساخت objectهای مشابه
+به‌جای مقداردهی تکراری، clone می‌گیری.
+
+3) کاهش وابستگی به constructorهای پیچیده
+همه چیز را لازم نیست از صفر بسازی.
+
+4) مناسب برای objectهای template-based
+وقتی یک نسخه پایه داری و از آن نمونه می‌سازی.
