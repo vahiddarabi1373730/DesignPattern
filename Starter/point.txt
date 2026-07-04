@@ -1,0 +1,34 @@
+Bridge:
+ انتزاع را از پیاده‌سازی جدا می‌کند تا هر دو بتوانند مستقل از هم تغییر کنند.
+ در واقع:
+ این الگو abstraction را از implementation جدا می‌کند تا هر کدام مستقل توسعه پیدا کنند.
+ abstraction:
+ میشه بخش
+ Notification
+ AlertNotification
+ ReminderNotification
+ 
+ 
+ implementation:
+ میشه بخش
+ EmailSender
+ SmsSender
+ 
+
+ 
+وقتی در سیستم دو بُعد مستقل از تغییر دارم و نمی‌خواهم ارث‌بری باعث انفجار تعداد کلاس‌ها شود، از Bridge استفاده می‌کنم.
+Bridge
+ جلوی رشد ترکیبی کلاس‌ها را می‌گیرد؛ یعنی مجبور نیستیم برای هر ترکیب یک کلاس جدا بسازیم.
+ 
+ 
+ ایده اصلی Bridge این است که وقتی دو hierarchies  باید مستقل رشد کنند، به‌جای inheritance از composition استفاده کنیم.
+ 
+ For example, if I have different notification types and different delivery channels, Bridge lets me extend both sides without multiplying classes.
+ 
+ 
+  Bridge
+   یک تصمیم طراحی از قبل است برای جدا کردن دو بُعد مستقل در سیستم.
+   
+   اگر Bridge استفاده نکنیم، معمولاً یا به ارث‌بری ترکیبی می‌رسیم، یا به یک سرویس بزرگ switch-based که OCP را نقض می‌کند.
+ 
+
