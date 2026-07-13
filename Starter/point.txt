@@ -1,0 +1,12 @@
+Decorator یک الگوی Structural است.
+
+
+الگوی طراحی Decorator برای اضافه کردن قابلیت‌های جدید به یک آبجکت استفاده می‌شود، بدون این‌که کلاس اصلی آن را تغییر بدهی.
+به جای inheritance از composition استفاده می‌کند.
+decorator همان interface شیء اصلی را پیاده‌سازی می‌کند.
+decorator یک reference از همان interface را داخل خودش نگه می‌دارد.
+با اصل Open/Closed سازگار است.
+برای جلوگیری از زیاد شدن subclassها خیلی مناسب است.
+
+
+
